@@ -185,6 +185,8 @@ def ScanForContests():
 					original_id=id
 					is_retweet = 0
 
+					#original_screen_name = ""
+
 					if 'retweeted_status' in item:
 
 						is_retweet = 1
@@ -234,6 +236,9 @@ def ScanForContests():
 			except Exception as e:
 				print("Could not connect to TwitterAPI - are your credentials correct?")
 				print("Exception: " + str(e))
+				exc_type, exc_obj, exc_tb = sys.exc_info()
+				fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+				print(exc_type, fname, exc_tb.tb_lineno)
 
 	else:
 
